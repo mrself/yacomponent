@@ -1,5 +1,6 @@
 var Del = require('ya-del'),
-	Instance = require('yainstance');
+	Instance = require('yainstance'),
+	handlebars = require('handlebars-adapter');
 
 function Base() {
 	
