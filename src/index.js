@@ -63,7 +63,6 @@ Base.prototype = $.extend({}, Del, {
 
 Base.init = function(options) {
 	var inst = new this;
-	if (options.$el && !options.$el.length) return null;
 	inst.setOptions(options);
 	inst.init();
 	if (this.instance) this.instance.add(inst);
