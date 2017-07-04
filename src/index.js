@@ -71,8 +71,8 @@ Base.init = function(options) {
 
 Base.getEl = function() {
 	if (this.defaults.autoBoot)
-		return $('.' + this.defaults.dName).not('[data-' + this.defaults.dName + '-auto=false]');
-	else return $('.' + this.defaults.dName + '[data-' + this.defaults.dName + '-auto');
+		return $('.' + this.defaults.dName).not('[data-' + this.defaults.dName.toLowerCase() + '-auto=false]');
+	else return $('.' + this.defaults.dName + '[data-' + this.defaults.dName.toLowerCase() + '-auto');
 };
 
 Base.findIn = function($parent) {
