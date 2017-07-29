@@ -79,6 +79,10 @@ Base.findIn = function($parent) {
 	return $parent.find('.' + this.defaults.dName);
 };
 
+Base.getName = function() {
+	return this.defaults.dName;
+};
+
 Base.serviceConfig = {};
 
 Base.defaults = {
