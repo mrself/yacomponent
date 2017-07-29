@@ -10,6 +10,8 @@ Base.prototype = $.extend({}, Del, {
 		this.$el = this.options.$el;
 		this._initDel_base();
 		this._defineComponents();
+		if (this.options.template)
+			this.defineTemplate();
 	},
 
 	_defineComponents: function() {
@@ -27,6 +29,10 @@ Base.prototype = $.extend({}, Del, {
 			}
 			self[component.name] = component['class'].init(options);
 		});
+	},
+
+	defineTemplate: function() {
+		
 	},
 
 	_initDel_base: function() {
@@ -79,7 +85,8 @@ Base.getName = function() {
 Base.serviceConfig = {};
 
 Base.defaults = {
-	autoBoot: false
+	autoBoot: false,
+	template: false
 };
 
 Base.register = function() {
