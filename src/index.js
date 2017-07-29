@@ -1,6 +1,5 @@
 var Del = require('ya-del'),
-	Instance = require('yainstance'),
-	handlebars = require('handlebars-adapter');
+	Instance = require('yainstance');
 
 function Base() {
 	
@@ -10,8 +9,6 @@ Base.prototype = $.extend({}, Del, {
 	init: function() {
 		this.$el = this.options.$el;
 		this._initDel_base();
-		if (this.options.template)
-			this._defineTemplate();
 		this._defineComponents();
 	},
 
@@ -32,10 +29,6 @@ Base.prototype = $.extend({}, Del, {
 		});
 	},
 
-	_defineTemplate: function() {
-		this.template = handlebars.compile(this.options.dName);
-	},
-	
 	_initDel_base: function() {
 		this.initDel({
 			dName: this.options.dName
@@ -86,8 +79,7 @@ Base.getName = function() {
 Base.serviceConfig = {};
 
 Base.defaults = {
-	autoBoot: false,
-	template: false
+	autoBoot: false
 };
 
 Base.register = function() {
