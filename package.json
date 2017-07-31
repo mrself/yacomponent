@@ -10,7 +10,6 @@
   "author": "Yaroslav Vavrysh <yaruk.my@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "handlebars-adapter": "github:mrself/handlebars-adapter#v1.0.0",
     "ya-del": "^1.3.0",
     "yainstance": "github:mrself/yainstance#v1.0.0"
   }
