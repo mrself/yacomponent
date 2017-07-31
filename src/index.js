@@ -13,6 +13,7 @@ Base.prototype = $.extend({}, Del, {
 		this._defineComponents();
 		if (this.options.template)
 			this.defineTemplate();
+		this.$el.trigger(this.options.dName + '/init', this);
 	},
 
 	_defineComponents: function() {
@@ -93,11 +94,11 @@ Base.defaults = {
 };
 
 Base.register = function() {
-	this.instance = new Instance();
+	this.instance = new Instance({bind: this.defaults.dName});
 	this.listenDeps();
 };
 
-Base.listendDeps = function() {
+Base.listenDeps = function() {
 	var config = this.componentConfig.listenDeps;
 	if (!config) return;
 	var $doc = $(document);
@@ -107,6 +108,8 @@ Base.listendDeps = function() {
 	});
 };
 
+Base.booted = false;
+
 Base.boot = function() {
 	var self = this;
 	this.getEl().each(function() {
@@ -115,6 +118,7 @@ Base.boot = function() {
 			dName: self.defaults.dName
 		});
 	});
+	this.booted = true;
 };
 
 module.exports = Base;
