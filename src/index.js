@@ -1,5 +1,6 @@
 var Del = require('ya-del'),
-	Instance = require('yainstance');
+	Instance = require('yainstance'),
+	ListenDeps = require('./listen-deps');
 
 function Base() {
 	
@@ -84,6 +85,8 @@ Base.getName = function() {
 
 Base.serviceConfig = {};
 
+Base.componentConfig = {};
+
 Base.defaults = {
 	autoBoot: false,
 	template: false
@@ -91,6 +94,17 @@ Base.defaults = {
 
 Base.register = function() {
 	this.instance = new Instance();
+	this.listenDeps();
+};
+
+Base.listendDeps = function() {
+	var config = this.componentConfig.listenDeps;
+	if (!config) return;
+	var $doc = $(document);
+	var self = this;
+	config.forEach(function(i) {
+		ListenDeps(self, $doc, i);
+	});
 };
 
 Base.boot = function() {
