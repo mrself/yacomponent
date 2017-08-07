@@ -66,7 +66,7 @@ Base.init = function(options) {
 	var inst = new this;
 	inst.setOptions(options);
 	inst.init();
-	if (this.instance) this.instance.add(inst);
+	if (this.options.instance) this.instance.add(inst);
 	return inst;
 };
 
@@ -90,7 +90,8 @@ Base.componentConfig = {};
 
 Base.defaults = {
 	autoBoot: false,
-	template: false
+	template: false,
+	instance: true
 };
 
 Base.register = function() {
