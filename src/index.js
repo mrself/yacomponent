@@ -18,19 +18,26 @@ Base.prototype = $.extend({}, Del, {
 
 	_defineComponents: function() {
 		var self = this;
-		this._getComponents().forEach(function(component) {
-			if (component.separate) {
-				var options = $.extend({
-					$el: component['class'].findIn(self.$el)
-				}, component.options);
-			} else {
-				var options = $.extend({
-					$el: self.find(component['class'].defaults.dName),
-					dName: self.makeName(component['class'].defaults.dName)
-				}, component.options);
-			}
-			self[component.name] = component['class'].init(options);
-		});
+		this._getComponents().forEach(this._defineComponent.bind(this));
+	},
+
+	_defineComponent: function(component) {
+		if (component.separate) {
+			var options = $.extend({
+				$el: component['class'].findIn(this.$el)
+			}, component.options);
+		} else {
+			var options = $.extend(this._makeComponentOptions(component), component.options);
+		}
+		this[component.name] = component['class'].init(options);
+	},
+
+	_makeComponentOptions: function(component) {
+		var dName = component['class'].defaults.dName;
+		return {
+			$el: this.find(dName),
+			dName: this.makeName(dName)
+		};
 	},
 
 	defineTemplate: function() {
