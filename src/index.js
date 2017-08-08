@@ -98,7 +98,7 @@ Base.componentConfig = {};
 Base.defaults = {
 	autoBoot: false,
 	template: false,
-	instance: true
+	instance: false
 };
 
 Base.register = function() {
