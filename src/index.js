@@ -116,6 +116,10 @@ Base.listenDeps = function() {
 	});
 };
 
+Base.getInst = function() {
+	return this.instance.instances[0];
+};
+
 Base.booted = false;
 
 Base.boot = function() {
