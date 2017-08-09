@@ -13,6 +13,7 @@ Base.prototype = $.extend({}, Del, {
 		this._defineComponents();
 		if (this.options.template)
 			this.defineTemplate();
+		if (this.options.instance) this.constructor.instance.add(this);
 		this.$el.trigger(this.options.dName + '/init', this);
 	},
 
@@ -73,7 +74,6 @@ Base.init = function(options) {
 	var inst = new this;
 	inst.setOptions(options);
 	inst.init();
-	if (inst.options.instance) this.instance.add(inst);
 	return inst;
 };
 
