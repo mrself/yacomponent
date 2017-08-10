@@ -112,7 +112,7 @@ Base.listenDeps = function() {
 	var $doc = $(document);
 	var self = this;
 	config.forEach(function(i) {
-		ListenDeps(self, $doc, i);
+		new ListenDeps(self, $doc, i);
 	});
 };
 
