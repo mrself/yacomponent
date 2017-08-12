@@ -126,8 +126,11 @@ Base.booted = false;
 Base.boot = function() {
 	var self = this;
 	this.getEl().each(function() {
+		var $this = $(this);
+		var dataClass = $this.data(self.defaults.dName + 'Class');
+		if (dataClass && self.class != dataClass) return;
 		self.init({
-			$el: $(this),
+			$el: $this,
 			dName: self.defaults.dName
 		});
 	});
