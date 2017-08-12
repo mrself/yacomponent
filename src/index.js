@@ -18,7 +18,6 @@ Base.prototype = $.extend({}, Del, {
 	},
 
 	_defineComponents: function() {
-		var self = this;
 		this._getComponents().forEach(this._defineComponent.bind(this));
 	},
 
