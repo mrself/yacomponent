@@ -84,6 +84,7 @@ Base.getEl = function() {
 };
 
 Base.findIn = function($parent) {
+	if ($parent.is('.' + this.defaults.dName)) return $parent;
 	return $parent.find('.' + this.defaults.dName);
 };
 
