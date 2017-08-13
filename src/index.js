@@ -61,7 +61,7 @@ Base.prototype = $.extend({}, Del, {
 	},
 
 	getDataOptions: function() {
-		return this.options.$el.data(this.options.dName.replace(/__/g, '-'));
+		return this.options.$el.data(this.options.dName.toLowerCase().replace(/__/g, '-'));
 	},
 
 	_getComponents: function() {
