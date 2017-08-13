@@ -102,7 +102,7 @@ Base.defaults = {
 };
 
 Base.register = function() {
-	this.instance = new Instance({bind: this.defaults.dName});
+	this.instance = new Instance({bind: this.defaults.dName + 'Instance'});
 	this.listenDeps();
 };
 
