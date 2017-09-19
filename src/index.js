@@ -55,7 +55,7 @@ Base.prototype = $.extend({}, Del, {
 	},
 
 	getOuterOptions: function() {
-		if (this.options.dName in window)
+		if (this.options.dName in window && !(window[this.options.dName] instanceof Element))
 			return window[this.options.dName];
 		else return {};
 	},
