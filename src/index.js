@@ -67,6 +67,10 @@ Base.prototype = $.extend({}, Del, {
 	_getComponents: function() {
 		return [];
 	},
+
+	eventName: function(name) {
+		return this.options.dName + ':' + name;
+	},
 });
 
 Base.init = function(options) {
