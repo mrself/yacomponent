@@ -69,7 +69,7 @@ Base.prototype = $.extend({}, Del, {
 	},
 
 	eventName: function(name) {
-		return this.options.dName + ':' + name;
+		return this.options.dName.replace(new RegExp(this.DelOptions.elSep), '/') + ':' + name;
 	},
 });
 
